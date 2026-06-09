@@ -6,8 +6,9 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
         h1 { color: #2c3e50; margin-bottom: 5px; }
-        .meta-info { color: #7f8c8d; font-size: 14px; margin-bottom: 30px; }
+        .meta-info { color: #7f8c8d; font-size: 14px; margin-bottom: 30px; font-weight: bold; }
         .badge { background-color: #e74c3c; color: white; padding: 3px 8px; border-radius: 3px; font-weight: bold; }
+        .badge-track { background-color: #2980b9; }
         h2 { color: #2980b9; margin-top: 40px; border-bottom: 2px solid #2980b9; padding-bottom: 5px; }
         p { color: #34495e; line-height: 1.6; }
         table { border-collapse: collapse; margin-top: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 100%; }
@@ -15,7 +16,7 @@
         th { background-color: #34495e; color: white; }
         .row-title { background-color: #eaeded; font-weight: bold; color: #333; }
         tr:hover { background-color: #f1f1f1; }
-        .diagonal { background-color: #bdc3c7; color: #7f8c8d; } /* 對角線不可配對 */
+        .diagonal { background-color: #bdc3c7; color: #7f8c8d; }
         .notice-box { margin-top: 40px; padding: 15px; background: #e8f4f8; border-left: 5px solid #2980b9; font-size: 13px; line-height: 1.5; }
     </style>
 </head>
@@ -23,8 +24,8 @@
 
     <h1>🏆 全球體育公開數據動態示範中心</h1>
     <div class="meta-info">
-        <span>當前定位參數：<span class="badge">主賽道 1 (Main Track 1)</span></span> | 
-        <span>當前動態分組：<span class="badge">第 1 場次 (Race / Match 1)</span></span>
+        <span>當前定位參數：<span id="current-track" class="badge badge-track">模擬賽道 1 (Track 1)</span></span> | 
+        <span>當前動態分組：<span id="current-match" class="badge">第 1 場次 (Match 1)</span></span>
     </div>
 
     <p>本網頁為開源自動化數據抽取引擎（Data Extraction Engine）之標準多維度分流測試網站。本站所有內容、環境參數、隊伍名稱、號碼及賠率矩陣均為<b>虛構與隨機生成之模擬數據（Mock Data）</b>，僅供軟體進行動態網址拼湊、網域相容性測試與功能演示使用，不具備任何真實賽事參考價值。</p>
@@ -41,28 +42,28 @@
         </thead>
         <tbody>
             <tr>
-                <td>1</td>
-                <td>🚀 閃電開路先鋒 (Alpha Charge)</td>
-                <td>2.5</td>
-                <td>1.4</td>
+                <td class="no">1</td>
+                <td class="name">🚀 閃電開路先鋒 (Alpha Charge)</td>
+                <td id="w_1" class="win">2.5</td>
+                <td id="p_1" class="pla">1.4</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>🌌 銀河風暴熱刺 (Galaxy Spur)</td>
-                <td>4.8</td>
-                <td>1.9</td>
+                <td class="no">2</td>
+                <td class="name">🌌 銀河風暴熱刺 (Galaxy Spur)</td>
+                <td id="w_2" class="win">4.8</td>
+                <td id="p_2" class="pla">1.9</td>
             </tr>
             <tr>
-                <td>3</td>
-                <td>🔥 烈焰紅色巨龍 (Crimson Dragon)</td>
-                <td>12.0</td>
-                <td>3.5</td>
+                <td class="no">3</td>
+                <td class="name">🔥 烈焰紅色巨龍 (Crimson Dragon)</td>
+                <td id="w_3" class="win">12.0</td>
+                <td id="p_3" class="pla">3.5</td>
             </tr>
             <tr>
-                <td>4</td>
-                <td>🌊 深海潛艇巨鯊 (Deepsea Shark)</td>
-                <td>1.8</td>
-                <td>1.1</td>
+                <td class="no">4</td>
+                <td class="name">🌊 深海潛艇巨鯊 (Deepsea Shark)</td>
+                <td id="w_4" class="win">1.8</td>
+                <td id="p_4" class="pla">1.1</td>
             </tr>
         </tbody>
     </table>
@@ -83,22 +84,23 @@
             <tr>
                 <td class="row-title">1號</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixA_1_2">5.5</td>
-                <td id="odds_matrixA_1_3">14.0</td>
-                <td id="odds_matrixA_1_4">3.2</td>
+                <td id="odds_matrixA_1_2" class="matrixA">5.5</td>
+                <td id="odds_matrixA_1_3" class="matrixA">14.0</td>
+                <td id="odds_matrixA_1_4" class="matrixA">3.2</td>
             </tr>
             <tr>
                 <td class="row-title">2號</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixA_2_3">22.0</td>
+                <td id="odds_matrixA_2_3" class="matrixA">22.0</td>
+                <td id="odds_matrixA_2_4" class="matrixA">7.5</td>
             </tr>
             <tr>
                 <td class="row-title">3號</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixA_3_4">18.5</td>
+                <td id="odds_matrixA_3_4" class="matrixA">18.5</td>
             </tr>
             <tr>
                 <td class="row-title">4號</td>
@@ -126,23 +128,23 @@
             <tr>
                 <td class="row-title">1號</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixB_1_2">2.1</td>
-                <td id="odds_matrixB_1_3">4.8</td>
-                <td id="odds_matrixB_1_4">1.5</td>
+                <td id="odds_matrixB_1_2" class="matrixB">2.1</td>
+                <td id="odds_matrixB_1_3" class="matrixB">4.8</td>
+                <td id="odds_matrixB_1_4" class="matrixB">1.5</td>
             </tr>
             <tr>
                 <td class="row-title">2號</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixB_2_3">6.2</td>
-                <td id="odds_matrixB_2_4">2.8</td>
+                <td id="odds_matrixB_2_3" class="matrixB">6.2</td>
+                <td id="odds_matrixB_2_4" class="matrixB">2.8</td>
             </tr>
             <tr>
                 <td class="row-title">3號</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixB_3_4">5.4</td>
+                <td id="odds_matrixB_3_4" class="matrixB">5.4</td>
             </tr>
             <tr>
                 <td class="row-title">4號</td>
@@ -156,8 +158,53 @@
 
     <div class="notice-box">
         <b>開發者測試與整合聲明 (Legal & Technical Notice)：</b><br>
-        本示範網頁之網址拼湊結構模型預設採參數分流控制（例如：<code>/home/2026-06-10/MT1/1</code>），其 DOM 結構包含標準 HTML 表格選擇器及帶有數據矩陣識別碼（matrixA/matrixB）之底線分隔 ID 屬性，專供數據科學、統計分析或通用網頁數據提取擴充功能進行<b>多線程路徑相容性加載與場次配對測試</b>。本站支持技術中立與網絡合理使用原則（Fair Dealing），嚴禁任何機構將本演示站點用於非法目的或誤導性陳述。
+        本示範網頁之網址拼湊結構模型預設採參數分流控制（例如：<code>?track=MT1&match=1</code>），其 DOM 結構包含標準 HTML 表格選擇器及帶有數據矩陣識別碼（matrixA/matrixB）之底線分隔 ID 屬性，專供數據科學、統計分析或通用網頁數據提取擴充功能進行<b>多線程路徑相容性加載與場次配對測試</b>。
     </div>
+
+    <script>
+        // 1. 獲取網址參數
+        const urlParams = new URLSearchParams(window.location.search);
+        const track = urlParams.get('track') || 'MT1';
+        const match = urlParams.get('match') || '1';
+
+        // 2. 映射場地名稱
+        const trackMap = {
+            'MT1': '主賽道 1 (Main Track 1)',
+            'MT2': '主賽道 2 (Main Track 2)',
+            'ST1': '次級賽道 1 (Sub Track 1)',
+            'ST2': '次級賽道 2 (Sub Track 2)',
+            'ST3': '次級賽道 3 (Sub Track 3)',
+            'ST4': '次級賽道 4 (Sub Track 4)'
+        };
+
+        // 3. 更新介面上的文字
+        document.getElementById('current-track').innerText = trackMap[track] || `自訂賽道 (${track})`;
+        document.getElementById('current-match').innerText = `第 ${match} 場次 (Match ${match})`;
+
+        // 4. 基於場次數字做為隨機種子，微調所有賠率，讓數據看起來在動態變化
+        const seed = parseInt(match) || 1;
+        const adjustOdds = (elId, baseValue) => {
+            const el = document.getElementById(elId);
+            if (el) {
+                // 利用簡單的數學偽隨機公式，確保輸入相同場次時，得到的隨機賠率永遠固定
+                const modifier = Math.sin(seed * parseInt(elId.replace(/[^0-9]/g, '') || 1)) * 0.3;
+                const finalOdds = Math.max(1.1, (baseValue + modifier)).toFixed(1);
+                el.innerText = finalOdds;
+            }
+        };
+
+        // 執行基礎與矩陣賠率微調
+        adjustOdds('w_1', 2.5); adjustOdds('p_1', 1.4);
+        adjustOdds('w_2', 4.8); adjustOdds('p_2', 1.9);
+        adjustOdds('w_3', 12.0); adjustOdds('p_3', 3.5);
+        adjustOdds('w_4', 1.8); adjustOdds('p_4', 1.1);
+
+        adjustOdds('odds_matrixA_1_2', 5.5); adjustOdds('odds_matrixA_1_3', 14.0); adjustOdds('odds_matrixA_1_4', 3.2);
+        adjustOdds('odds_matrixA_2_3', 22.0); adjustOdds('odds_matrixA_2_4', 7.5); adjustOdds('odds_matrixA_3_4', 18.5);
+
+        adjustOdds('odds_matrixB_1_2', 2.1); adjustOdds('odds_matrixB_1_3', 4.8); adjustOdds('odds_matrixB_1_4', 1.5);
+        adjustOdds('odds_matrixB_2_3', 6.2); adjustOdds('odds_matrixB_2_4', 2.8); adjustOdds('odds_matrixB_3_4', 5.4);
+    </script>
 
 </body>
 </html>
