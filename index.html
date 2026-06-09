@@ -5,24 +5,32 @@
     <title>全球體育公開數據動態示範中心 (Global Sports Open Data Demonstration Center)</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; color: #333; }
-        h1 { color: #2c3e50; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        .meta-info { color: #7f8c8d; font-size: 14px; margin-bottom: 30px; }
+        .badge { background-color: #e74c3c; color: white; padding: 3px 8px; border-radius: 3px; font-weight: bold; }
         h2 { color: #2980b9; margin-top: 40px; border-bottom: 2px solid #2980b9; padding-bottom: 5px; }
-        p { color: #7f8c8d; line-height: 1.6; }
-        table { border-collapse: collapse; margin-top: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        p { color: #34495e; line-height: 1.6; }
+        table { border-collapse: collapse; margin-top: 15px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 100%; }
         th, td { padding: 10px 15px; text-align: center; border: 1px solid #ddd; }
         th { background-color: #34495e; color: white; }
         .row-title { background-color: #eaeded; font-weight: bold; color: #333; }
         tr:hover { background-color: #f1f1f1; }
-        .diagonal { background-color: #bdc3c7; } /* 對角線不可配對 */
+        .diagonal { background-color: #bdc3c7; color: #7f8c8d; } /* 對角線不可配對 */
+        .notice-box { margin-top: 40px; padding: 15px; background: #e8f4f8; border-left: 5px solid #2980b9; font-size: 13px; line-height: 1.5; }
     </style>
 </head>
 <body>
 
     <h1>🏆 全球體育公開數據動態示範中心</h1>
-    <p>本網頁為開源自動化數據抽取引擎（Data Extraction Engine）之標準測試範本網站。本站所有內容、隊伍名稱、號碼及賠率資料均為<b>虛構與隨機生成之模擬數據（Mock Data）</b>，僅供軟體介面相容性測試、DOM 結構解析與演算法功能演示使用，不具備任何真實賽事或實時參考價值。</p>
+    <div class="meta-info">
+        <span>當前定位參數：<span class="badge">主賽道 1 (Main Track 1)</span></span> | 
+        <span>當前動態分組：<span class="badge">第 1 場次 (Race / Match 1)</span></span>
+    </div>
 
-    <h2>1. 基礎線性數據 (Direct & Secondary Yields)</h2>
-    <table style="width: 100%;">
+    <p>本網頁為開源自動化數據抽取引擎（Data Extraction Engine）之標準多維度分流測試網站。本站所有內容、環境參數、隊伍名稱、號碼及賠率矩陣均為<b>虛構與隨機生成之模擬數據（Mock Data）</b>，僅供軟體進行動態網址拼湊、網域相容性測試與功能演示使用，不具備任何真實賽事參考價值。</p>
+
+    <h2>1. 基礎線性數據 - 核心彩池 (Direct & Secondary Yields)</h2>
+    <table>
         <thead>
             <tr>
                 <th>編號 (ID)</th>
@@ -33,28 +41,28 @@
         </thead>
         <tbody>
             <tr>
-                <td class="no">1</td>
-                <td class="name">🚀 閃電開路先鋒 (Alpha Charge)</td>
-                <td class="win">2.5</td>
-                <td class="pla">1.4</td>
+                <td>1</td>
+                <td>🚀 閃電開路先鋒 (Alpha Charge)</td>
+                <td>2.5</td>
+                <td>1.4</td>
             </tr>
             <tr>
-                <td class="no">2</td>
-                <td class="name">🌌 銀河風暴熱刺 (Galaxy Spur)</td>
-                <td class="win">4.8</td>
-                <td class="pla">1.9</td>
+                <td>2</td>
+                <td>🌌 銀河風暴熱刺 (Galaxy Spur)</td>
+                <td>4.8</td>
+                <td>1.9</td>
             </tr>
             <tr>
-                <td class="no">3</td>
-                <td class="name">🔥 烈焰紅色巨龍 (Crimson Dragon)</td>
-                <td class="win">12.0</td>
-                <td class="pla">3.5</td>
+                <td>3</td>
+                <td>🔥 烈焰紅色巨龍 (Crimson Dragon)</td>
+                <td>12.0</td>
+                <td>3.5</td>
             </tr>
             <tr>
-                <td class="no">4</td>
-                <td class="name">🌊 深海潛艇巨鯊 (Deepsea Shark)</td>
-                <td class="win">1.8</td>
-                <td class="pla">1.1</td>
+                <td>4</td>
+                <td>🌊 深海潛艇巨鯊 (Deepsea Shark)</td>
+                <td>1.8</td>
+                <td>1.1</td>
             </tr>
         </tbody>
     </table>
@@ -75,23 +83,22 @@
             <tr>
                 <td class="row-title">1號</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixA_1_2" class="matrixA">5.5</td>
-                <td id="odds_matrixA_1_3" class="matrixA">14.0</td>
-                <td id="odds_matrixA_1_4" class="matrixA">3.2</td>
+                <td id="odds_matrixA_1_2">5.5</td>
+                <td id="odds_matrixA_1_3">14.0</td>
+                <td id="odds_matrixA_1_4">3.2</td>
             </tr>
             <tr>
                 <td class="row-title">2號</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixA_2_3" class="matrixA">22.0</td>
-                <td id="odds_matrixA_2_4" class="matrixA">7.5</td>
+                <td id="odds_matrixA_2_3">22.0</td>
             </tr>
             <tr>
                 <td class="row-title">3號</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixA_3_4" class="matrixA">18.5</td>
+                <td id="odds_matrixA_3_4">18.5</td>
             </tr>
             <tr>
                 <td class="row-title">4號</td>
@@ -119,23 +126,23 @@
             <tr>
                 <td class="row-title">1號</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixB_1_2" class="matrixB">2.1</td>
-                <td id="odds_matrixB_1_3" class="matrixB">4.8</td>
-                <td id="odds_matrixB_1_4" class="matrixB">1.5</td>
+                <td id="odds_matrixB_1_2">2.1</td>
+                <td id="odds_matrixB_1_3">4.8</td>
+                <td id="odds_matrixB_1_4">1.5</td>
             </tr>
             <tr>
                 <td class="row-title">2號</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixB_2_3" class="matrixB">6.2</td>
-                <td id="odds_matrixB_2_4" class="matrixB">2.8</td>
+                <td id="odds_matrixB_2_3">6.2</td>
+                <td id="odds_matrixB_2_4">2.8</td>
             </tr>
             <tr>
                 <td class="row-title">3號</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
                 <td class="diagonal">X</td>
-                <td id="odds_matrixB_3_4" class="matrixB">5.4</td>
+                <td id="odds_matrixB_3_4">5.4</td>
             </tr>
             <tr>
                 <td class="row-title">4號</td>
@@ -147,9 +154,9 @@
         </tbody>
     </table>
 
-    <div style="margin-top: 40px; padding: 15px; background: #e8f4f8; border-left: 5px solid #2980b9; font-size: 13px; line-height: 1.5;">
+    <div class="notice-box">
         <b>開發者測試與整合聲明 (Legal & Technical Notice)：</b><br>
-        本示範網頁之 DOM 結構包含標準 HTML 表格選擇器及帶有數據矩陣識別碼（matrixA/matrixB）之底線分隔 ID 屬性（例如 <code>odds_matrixA_1_2</code>），專供數據科學、統計分析或通用網頁數據提取擴充功能進行動態相容性加載與配對測試。本站支持技術中立與網絡合理使用原則（Fair Dealing），嚴禁任何機構將本演示站點用於非法商業宣傳或誤導性陳述。
+        本示範網頁之網址拼湊結構模型預設採參數分流控制（例如：<code>/home/2026-06-10/MT1/1</code>），其 DOM 結構包含標準 HTML 表格選擇器及帶有數據矩陣識別碼（matrixA/matrixB）之底線分隔 ID 屬性，專供數據科學、統計分析或通用網頁數據提取擴充功能進行<b>多線程路徑相容性加載與場次配對測試</b>。本站支持技術中立與網絡合理使用原則（Fair Dealing），嚴禁任何機構將本演示站點用於非法目的或誤導性陳述。
     </div>
 
 </body>
